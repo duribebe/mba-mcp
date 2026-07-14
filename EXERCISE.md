@@ -30,6 +30,9 @@ The numbers rank viability. This ranks you.
 ### Step 6. Decide and defend
 In one paragraph, name the company you would build and defend the choice with the frameworks. Remember Carlos Llano: the company is the long shadow of the CEO. Choose a shadow you are proud to cast.
 
+### Step 7. Pitch it
+Now turn your analysis into a real pitch deck. Ask Claude to run `deck_outline` for the Techstars 6-slide format, fill in your company's story, then run `pitch_deck`. You get a self-contained `.html` deck: cover, problem, solution, market and model, traction and moat, team and the ask. Open it in a browser, present it, and print it to PDF. Every slide has to answer one question, "so what?"
+
 ---
 
 ### Reflection, the future of work

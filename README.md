@@ -47,14 +47,20 @@ You point Claude at three or more companies. For each one, the analyzer supplies
 | `status` | What the analyzer is and the run flow. Start here. |
 | `list_frameworks` | Index of the frameworks. |
 | `get_framework(name)` | Open one framework in full. |
-| `analyze_company(name, description)` | The lens by lens scaffold for one company. |
+| `analyze_company(name, description)` | The lens by lens scaffold, plus the bull case, bear case, key metric, and confidence. |
 | `score_company(name, scores_json)` | Weighted scorecard and verdict. |
 | `compare_companies(companies_json)` | One comparison matrix and ranking. |
 | `motivation_check(name)` | The get up from bed test. |
 | `future_of_work(name)` | What stays human when AI does the rest. |
+| `deck_outline()` | The Techstars pitch format, distilled to 6 slides, and the deck JSON schema. |
+| `pitch_deck(name, deck_json)` | Delivers a self-contained Techstars HTML pitch deck (6 slides) written to disk. |
 | `carlos_llano_principle()` | The founding principle, with translation. |
-| `get_exercise()` | The full six step student exercise. |
+| `get_exercise()` | The full student exercise. |
 | `rebut(position)` | Adversarial investor objections to a claim. |
+
+## The pitch deck
+
+Once a company is analyzed, the analyzer can deliver a real pitch deck, not just a critique. Call `deck_outline()` to see the Techstars format (Problem, Solution, Market, Business Model, Traction, Team, The Ask, Vision) distilled to 6 slides, fill the company's story into the JSON schema, then call `pitch_deck(name, deck_json)`. It writes a self-contained `.html` deck you open in a browser (arrow keys or click to move, print to PDF for a handout). Every slide answers the Techstars question, "so what?"
 
 ## Install
 
