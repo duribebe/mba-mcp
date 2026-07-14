@@ -18,7 +18,7 @@ You point Claude at three or more companies. For each one, the analyzer supplies
 
 **Frameworks it teaches**
 
-1. **The 4 C's** (IPADE): Compania, Consumidor (the DMU), Competencia, Contexto. The situation, before the 4 P's (the actions).
+1. **The 5 C's and the 4 P's** (IPADE): the 5 C's (Compania, Consumidor, Competencia, Contexto, Canales) diagnose the situation; the 4 P's (Producto, Precio, Plaza, Promocion) are the actions you take in response.
 2. **The Value Triangle**: the three kinds of value a customer receives, utility, monetary, and psychological.
 3. **Value Capture** (pricing): the value stick (willingness to pay minus cost), and the three ways to set price.
 4. **Values**: what the company actually stands for, judged by its choices, not its slogans.
@@ -31,7 +31,7 @@ You point Claude at three or more companies. For each one, the analyzer supplies
 
 | Dimension | Weight |
 | --- | --- |
-| Customer and Market (4 C's) | 15 |
+| Customer and Market (5 C's) | 15 |
 | Value Creation (value triangle) | 15 |
 | Value Capture (pricing) | 15 |
 | Competition and Moat | 12 |
