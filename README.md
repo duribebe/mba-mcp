@@ -1,0 +1,102 @@
+# MBA Company Analyzer (`mba-mcp`)
+
+> *"La empresa es la sombra alargada del CEO."*
+> The company is the long shadow of the CEO.
+> **Carlos Llano Cifuentes, founder of IPADE Business School**
+
+A pocket business school as an [MCP](https://modelcontextprotocol.io) server for Claude. It gives Claude the Harvard and IPADE case canon as structured frameworks, scoring rubrics, and comparison scaffolds, so a student can analyze and compare three or more companies (real or invented) and then face the deepest question of the age of AI:
+
+**When a machine can do most of the work, would you still be motivated enough to get up from bed and build it?**
+
+Viability is becoming cheap and abundant. Motivation is scarce. This tool ranks companies by the head and helps you decide with the whole person.
+
+---
+
+## What it does
+
+You point Claude at three or more companies. For each one, the analyzer supplies the questions; Claude supplies the reasoning. Then it scores, compares, and pushes you to the founder's real question.
+
+**Frameworks it teaches**
+
+1. **The 4 C's** (IPADE): Compania, Consumidor (the DMU), Competencia, Contexto. The situation, before the 4 P's (the actions).
+2. **The Value Triangle**: the three kinds of value a customer receives, utility, monetary, and psychological.
+3. **Value Capture** (pricing): the value stick (willingness to pay minus cost), and the three ways to set price.
+4. **Values**: what the company actually stands for, judged by its choices, not its slogans.
+5. **Sustainability**: business durability, and whether it renews or depletes the world it uses.
+6. **Founder Fit and Motivation**: why you, why now, philosophical alignment, and the get up from bed test.
+7. **The Future of Work**: what stays irreplaceably human when AI can do the execution.
+8. **The IPADE case method**: situation (5 C's), alternatives (4 P's), financials (the 3 R's).
+
+**How it scores** (0 to 10 on eight weighted dimensions, total out of 100)
+
+| Dimension | Weight |
+| --- | --- |
+| Customer and Market (4 C's) | 15 |
+| Value Creation (value triangle) | 15 |
+| Value Capture (pricing) | 15 |
+| Competition and Moat | 12 |
+| Founder Fit and Motivation | 13 |
+| Values and Ethics | 10 |
+| Sustainability and Durability | 10 |
+| AI-Resilience (future of work) | 10 |
+
+## The tools
+
+| Tool | What it does |
+| --- | --- |
+| `status` | What the analyzer is and the run flow. Start here. |
+| `list_frameworks` | Index of the frameworks. |
+| `get_framework(name)` | Open one framework in full. |
+| `analyze_company(name, description)` | The lens by lens scaffold for one company. |
+| `score_company(name, scores_json)` | Weighted scorecard and verdict. |
+| `compare_companies(companies_json)` | One comparison matrix and ranking. |
+| `motivation_check(name)` | The get up from bed test. |
+| `future_of_work(name)` | What stays human when AI does the rest. |
+| `carlos_llano_principle()` | The founding principle, with translation. |
+| `get_exercise()` | The full six step student exercise. |
+| `rebut(position)` | Adversarial investor objections to a claim. |
+
+## Install
+
+Requires Python 3.10 or newer.
+
+```bash
+git clone https://github.com/duribebe/mba-mcp.git
+cd mba-mcp
+pip install -r requirements.txt   # installs the mcp SDK
+```
+
+## Connect it to Claude
+
+**Claude Code** (one line):
+
+```bash
+claude mcp add mba -- python /absolute/path/to/mba-mcp/server.py
+```
+
+**Claude Desktop**: add this to `claude_desktop_config.json` (Settings, Developer, Edit Config), then restart Claude:
+
+```json
+{
+  "mcpServers": {
+    "mba": {
+      "command": "python",
+      "args": ["/absolute/path/to/mba-mcp/server.py"]
+    }
+  }
+}
+```
+
+Use the full path to a Python that has the `mcp` package installed. Then, in a chat, just ask Claude to "use the MBA analyzer to compare Netflix, a lemonade stand, and my app idea."
+
+## The exercise
+
+The classroom exercise is in [`EXERCISE.md`](EXERCISE.md) and is also returned by the `get_exercise` tool. In short: pick three companies, analyze and score each, compare them on one matrix, run the future of work lens, and then answer honestly whether you would get up from bed to build the one you would build. Decide, and defend it with the frameworks.
+
+## Why this exists
+
+Most of the tasks inside a company are becoming things AI can do. The one input it cannot supply for you is the motivation to start, and to keep going through the hard middle. A company will always be the long shadow of the person who leads it. So before you ask whether a business is viable, ask whether it is a shadow you would be proud to cast.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE). Built by Daniel Uribe, GenoBank.io, 2026.

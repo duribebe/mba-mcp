@@ -1,0 +1,21 @@
+[project]
+name = "mba-mcp"
+version = "0.1.0"
+description = "MBA Company Analyzer, an MCP server that gives Claude the Harvard and IPADE case canon to analyze and compare companies."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Daniel Uribe", email = "daniel@genobank.io" }]
+keywords = ["mcp", "claude", "mba", "ipade", "harvard", "strategy", "entrepreneurship", "business-case"]
+dependencies = ["mcp[cli]>=1.0.0"]
+
+[project.urls]
+Homepage = "https://github.com/duribebe/mba-mcp"
+Repository = "https://github.com/duribebe/mba-mcp"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["server"]
