@@ -6,7 +6,7 @@
 
 A pocket business school as an [MCP](https://modelcontextprotocol.io) server for Claude. It gives Claude the Harvard and IPADE case canon as structured frameworks, scoring rubrics, and comparison scaffolds, so a student can analyze and compare three or more companies (real or invented) and then face the deepest question of the age of AI:
 
-**When a machine can do most of the work, would you still be motivated enough to get up from bed and build it?**
+**When a machine can do most of the work, would you still be inspired enough to build it for the next ten years?**
 
 Viability is becoming cheap and abundant. Motivation is scarce. This tool ranks companies by the head and helps you decide with the whole person.
 
@@ -23,7 +23,7 @@ You point Claude at three or more companies. For each one, the analyzer supplies
 3. **Value Capture** (pricing): the value stick (willingness to pay minus cost), and the three ways to set price.
 4. **Values**: what the company actually stands for, judged by its choices, not its slogans.
 5. **Sustainability**: business durability, and whether it renews or depletes the world it uses.
-6. **Founder Fit and Motivation**: why you, why now, philosophical alignment, and the get up from bed test.
+6. **Founder Fit and Motivation**: why you, why now, philosophical alignment, and the ten year test.
 7. **The Future of Work**: what stays irreplaceably human when AI can do the execution.
 8. **The IPADE case method**: situation (5 C's), alternatives (4 P's), financials (the 3 R's).
 
@@ -52,7 +52,7 @@ Grade 3 or higher is compelling, 2.4 or higher is promising, 1.8 or higher is vi
 | `analyze_company(name, description)` | The lens by lens scaffold, plus the bull case, bear case, key metric, and confidence. |
 | `score_company(name, scores_json)` | The 1 to 4 scorecard and verdict. |
 | `compare_companies(companies_json)` | One comparison matrix and ranking. |
-| `motivation_check(name)` | The get up from bed test. |
+| `motivation_check(name)` | The ten year test. |
 | `future_of_work(name)` | What stays human when AI does the rest. |
 | `deck_outline()` | The Techstars pitch format, distilled to 6 slides, and the deck JSON schema. |
 | `pitch_deck(name, deck_json)` | Delivers a self-contained Techstars HTML pitch deck (6 slides) written to disk. |
@@ -99,7 +99,7 @@ Use the full path to a Python that has the `mcp` package installed. Then, in a c
 
 ## The exercise
 
-The classroom exercise is in [`EXERCISE.md`](EXERCISE.md) and is also returned by the `get_exercise` tool. In short: pick three companies, analyze and score each, compare them on one matrix, run the future of work lens, and then answer honestly whether you would get up from bed to build the one you would build. Decide, and defend it with the frameworks.
+The classroom exercise is in [`EXERCISE.md`](EXERCISE.md) and is also returned by the `get_exercise` tool. In short: pick three companies, analyze and score each, compare them on one matrix, run the future of work lens, and then answer honestly whether you would be inspired to build the one you would build for the next ten years. Decide, and defend it with the frameworks.
 
 ## Why this exists
 

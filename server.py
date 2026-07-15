@@ -5,7 +5,7 @@ A pocket business school. It gives Claude the Harvard and IPADE case canon as
 structured frameworks, scoring rubrics, and comparison scaffolds, so a student
 can analyze and compare three or more companies (real or invented) and then face
 the deepest question of the age of AI: when a machine can do most of the work,
-would you still be motivated enough to get up from bed and build it?
+would you still be inspired enough to build it for the next ten years?
 
 Grounded in the IPADE 5 C's and 4 P's, the value triangle, value based pricing,
 and the
@@ -211,7 +211,7 @@ FRAMEWORKS = {
         "scores": "sustainability",
     },
     "motivation": {
-        "title": "Founder Fit and Motivation: would you get up from bed for this?",
+        "title": "Founder Fit and Motivation: would you build it for the next ten years?",
         "definition": (
             "Many companies are viable. Few are viable FOR YOU. In the age of "
             "AI, viability is cheap and abundant, and motivation is scarce. "
@@ -231,8 +231,8 @@ FRAMEWORKS = {
                 "Does this fit your values and the person you want to become? "
                 "Would this be a shadow you are proud to cast?"
             ),
-            "Energy (the get up from bed test)": (
-                "Would you get out of bed for this for years, through the hard "
+            "Energy (the ten year test)": (
+                "Would you stay inspired to build this for the next ten years, through the hard "
                 "middle, even when it is boring and nobody is watching?"
             ),
         },
@@ -320,7 +320,7 @@ def _verdict(grade: float) -> str:
                 "the motivation is weak. Rework it, or pick a different shadow "
                 "to cast.")
     return ("Not yet. Fix the fundamentals, or choose a company you would "
-            "actually get up from bed for.")
+            "actually be inspired to build for the next ten years.")
 
 
 def _score_one(scores: dict):
@@ -371,7 +371,7 @@ most durable companies keep a large, human core.
 
 Step 5. The real question. Run motivation_check on the company you would build.
 Answer honestly: why you, why now, does it align with who you want to become,
-and would you get up from bed for it for years. The numbers rank viability.
+and would you stay inspired to build it for the next ten years. The numbers rank viability.
 This ranks you.
 
 Step 6. Decide and defend. In one paragraph, name the company you would build
@@ -402,7 +402,7 @@ def status() -> str:
             "3. score_company(name, scores_json) to record 1 to 4 on the eight dimensions.",
             "4. compare_companies(companies_json) to rank them on one matrix.",
             "5. future_of_work(name) to see what stays human when AI does the rest.",
-            "6. motivation_check(name) for the get up from bed test on the one you would build.",
+            "6. motivation_check(name) for the ten year test on the one you would build.",
             "7. deck_outline() then pitch_deck(name, deck_json) to deliver the Techstars pitch deck.",
             "8. get_exercise for the full classroom exercise.",
         ],
@@ -566,8 +566,8 @@ def compare_companies(companies_json: str) -> str:
             "The ranking measures viability, not destiny. Two moves finish the "
             "analysis. First, if the top two are close, break the tie with the "
             "future of work: which one keeps the larger human core when AI "
-            "commoditizes execution. Second, override the numbers with the get "
-            "up from bed test: among the viable companies, which one would you "
+            "commoditizes execution. Second, override the numbers with the "
+            "ten year test: among the viable companies, which one would you "
             "be truly motivated to build, for years, through the hard middle? "
             "Why you? Why now? Carlos Llano: the company is the elongated shadow of "
             "the CEO. Rank by the head, decide with the whole person."
@@ -579,7 +579,7 @@ def compare_companies(companies_json: str) -> str:
 
 @mcp.tool()
 def motivation_check(name: str) -> str:
-    """The get up from bed test for the company you would actually build. Returns
+    """The ten year test for the company you would actually build. Returns
     the four founder questions specialized to this company (why you, why now,
     philosophical alignment, energy), a self scoring rubric, and the Carlos Llano
     anchor. This is the input AI cannot supply for you."""
@@ -591,7 +591,7 @@ def motivation_check(name: str) -> str:
             "why_you": fw["parts"]["Why you"],
             "why_now": fw["parts"]["Why now"],
             "philosophical_alignment": fw["parts"]["Philosophical alignment"],
-            "energy": fw["parts"]["Energy (the get up from bed test)"],
+            "energy": fw["parts"]["Energy (the ten year test)"],
         },
         "self_score_0_to_10": {
             "unfair_advantage": "How real is your edge for this?",
@@ -648,7 +648,7 @@ def carlos_llano_principle() -> str:
 @mcp.tool()
 def get_exercise() -> str:
     """The full student exercise, six steps, from analyzing three companies to
-    the get up from bed test. Hand this to a class, or run it yourself."""
+    the ten year test. Hand this to a class, or run it yourself."""
     return _j({"exercise": EXERCISE, "epigraph": CARLOS_LLANO,
                "repo": "https://github.com/duribebe/mba-mcp", "disclaimer": DISCLAIMER})
 
@@ -673,7 +673,7 @@ def rebut(position: str) -> str:
             "Future of work: how much of this is execution an AI will soon do "
             "for nearly free, collapsing your advantage?",
             "Motivation: is the founder's energy real and durable, or is this "
-            "a spreadsheet that no one will get up from bed for?",
+            "a spreadsheet no one will be inspired to build for the next ten years?",
         ],
         "instruction": ("Voice the single toughest objection above in the voice "
                         "of a skeptical investor, then say what evidence would "

@@ -23,7 +23,7 @@ Run `motivation_check` on the company you would build. Answer honestly:
 - **Why you?** What is your unfair advantage, your obsession, your proximity, your love?
 - **Why now?** What just changed in the world to make this the moment?
 - **Alignment?** Does it fit who you want to become?
-- **Energy?** Would you get up from bed for it, for years, through the hard middle, when nobody is watching?
+- **Energy?** Would you be inspired to build it for the next ten years, through the hard middle, when nobody is watching?
 
 The numbers rank viability. This ranks you.
 
@@ -36,4 +36,4 @@ Now turn your analysis into a real pitch deck. Ask Claude to run `deck_outline` 
 ---
 
 ### Reflection, the future of work
-Almost every task in a modern company is becoming something a capable AI can do. Writing, coding, analysis, design, and routine operations are getting abundant and nearly free. When the "how" is commoditized, the "why" and the "who" win. The scarce input is no longer skill. It is the motivation to begin and the character to continue. Among all the viable companies you could build, the only one that will actually happen is the one you would get out of bed for.
+Almost every task in a modern company is becoming something a capable AI can do. Writing, coding, analysis, design, and routine operations are getting abundant and nearly free. When the "how" is commoditized, the "why" and the "who" win. The scarce input is no longer skill. It is the motivation to begin and the character to continue. Among all the viable companies you could build, the only one that will actually happen is the one you would be inspired to build for the next ten years.
