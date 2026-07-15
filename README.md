@@ -1,9 +1,5 @@
 # MBA Company Analyzer (`mba-mcp`)
 
-> *"La empresa es la sombra alargada del CEO."*
-> The company is the elongated shadow of the CEO.
-> **Carlos Llano Cifuentes, founder of IPADE Business School**
-
 A pocket business school as an [MCP](https://modelcontextprotocol.io) server for Claude. It gives Claude the Harvard and IPADE case canon as structured frameworks, scoring rubrics, and comparison scaffolds, so a student can analyze and compare three or more companies (real or invented) and then face the deepest question of the age of AI:
 
 **When a machine can do most of the work, would you still be inspired enough to build it for the next ten years?**
@@ -56,7 +52,6 @@ Grade 3 or higher is compelling, 2.4 or higher is promising, 1.8 or higher is vi
 | `future_of_work(name)` | What stays human when AI does the rest. |
 | `deck_outline()` | The Techstars pitch format, distilled to 6 slides, and the deck JSON schema. |
 | `pitch_deck(name, deck_json)` | Delivers a self-contained Techstars HTML pitch deck (6 slides) written to disk. |
-| `carlos_llano_principle()` | The founding principle, with translation. |
 | `get_exercise()` | The full student exercise. |
 | `rebut(position)` | Adversarial investor objections to a claim. |
 
@@ -103,7 +98,7 @@ The classroom exercise is in [`EXERCISE.md`](EXERCISE.md) and is also returned b
 
 ## Why this exists
 
-Most of the tasks inside a company are becoming things AI can do. The one input it cannot supply for you is the motivation to start, and to keep going through the hard middle. A company will always be the elongated shadow of the person who leads it. So before you ask whether a business is viable, ask whether it is a shadow you would be proud to cast.
+Most of the tasks inside a company are becoming things AI can do. The one input it cannot supply for you is the motivation to start, and to keep going through the hard middle. A company takes on the values and character of the person who leads it. So before you ask whether a business is viable, ask whether it is one you would be proud to build.
 
 ## License
 

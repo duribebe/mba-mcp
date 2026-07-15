@@ -1,8 +1,5 @@
 # The MBA Company Analyzer, Student Exercise
 
-> *"La empresa es la sombra alargada del CEO."* The company is the elongated shadow of the CEO.
-> Carlos Llano Cifuentes, founder of IPADE Business School.
-
 **Objective.** Practice thinking like a founder and an investor, then discover the one input AI cannot supply for you.
 
 ### Step 1. Pick three companies
@@ -28,7 +25,7 @@ Run `motivation_check` on the company you would build. Answer honestly:
 The numbers rank viability. This ranks you.
 
 ### Step 6. Decide and defend
-In one paragraph, name the company you would build and defend the choice with the frameworks. Remember Carlos Llano: the company is the elongated shadow of the CEO. Choose a shadow you are proud to cast.
+In one paragraph, name the company you would build and defend the choice with the frameworks. Choose a company you would be proud to build.
 
 ### Step 7. Pitch it
 Now turn your analysis into a real pitch deck. Ask Claude to run `deck_outline` for the Techstars 6-slide format, fill in your company's story, then run `pitch_deck`. You get a self-contained `.html` deck: cover, problem, solution, market and model, traction and moat, team and the ask. Open it in a browser, present it, and print it to PDF. Every slide has to answer one question, "so what?"

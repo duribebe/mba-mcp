@@ -8,8 +8,7 @@ the deepest question of the age of AI: when a machine can do most of the work,
 would you still be inspired enough to build it for the next ten years?
 
 Grounded in the value triangle, value based pricing, the Techstars pitch, and
-the principle of IPADE founder Carlos Llano Cifuentes: "La empresa es la sombra
-alargada del CEO." The company is the elongated shadow of the CEO.
+the IPADE case method.
 
 Run: python3 server.py   (stdio transport)
 """
@@ -34,20 +33,6 @@ def _j(obj) -> str:
 # ---------------------------------------------------------------------------
 # THE CANON
 # ---------------------------------------------------------------------------
-
-CARLOS_LLANO = {
-    "quote_es": "La empresa es la sombra alargada del CEO.",
-    "author": "Carlos Llano Cifuentes, founder of IPADE Business School",
-    "translation_en": "The company is the elongated shadow of the CEO.",
-    "meaning": (
-        "A company inevitably takes the shape, the values, the strengths, and "
-        "the blind spots of the person who leads it. Its culture, its ethics, "
-        "and its destiny are a projection of the founder's character and "
-        "motivation. So 'why you' is not a soft question. It is the most "
-        "predictive one. Before you ask whether a business is viable, ask "
-        "whether it is a shadow you would be proud to cast."
-    ),
-}
 
 FRAMEWORKS = {
     "value_triangle": {
@@ -101,10 +86,8 @@ FRAMEWORKS = {
         "title": "Values: what the company actually stands for",
         "definition": (
             "A company's values are not a poster on the wall. They are the "
-            "choices it makes when money and mission conflict. This is where "
-            "Carlos Llano's principle bites: the company is the elongated shadow of "
-            "the CEO, so its true values are the founder's true values, made "
-            "visible at scale."
+            "choices it makes when money and mission conflict. A company's true "
+            "values are its founder's true values, made visible at scale."
         ),
         "parts": {
             "Judge by choices, not slogans": (
@@ -339,8 +322,8 @@ and would you stay inspired to build it for the next ten years. The numbers rank
 This ranks you.
 
 Step 6. Decide and defend. In one paragraph, name the company you would build
-and defend the choice with the frameworks. Remember Carlos Llano: the company is
-the elongated shadow of the CEO. Choose a shadow you are proud to cast.
+and defend the choice with the frameworks. Choose a company you would be proud
+to build.
 """
 
 
@@ -357,9 +340,7 @@ def status() -> str:
     return _j({
         "name": "MBA Company Analyzer",
         "grounding": ("Harvard and IPADE case method. The value triangle, "
-                      "value based pricing, the Techstars pitch, and Carlos "
-                      "Llano's principle of the elongated shadow of the CEO."),
-        "epigraph": CARLOS_LLANO,
+                      "value based pricing, and the Techstars pitch."),
         "how_to_use": [
             "1. get_framework to learn any lens (or list_frameworks for the index).",
             "2. analyze_company(name, description) for each company to get the scaffold.",
@@ -397,8 +378,7 @@ def get_framework(name: str = "") -> str:
     'pricing', 'why you', 'ai', or 'deck' also work. Pass an empty string for all."""
     q = (name or "").strip().lower()
     if not q:
-        return _j({"frameworks": FRAMEWORKS, "epigraph": CARLOS_LLANO,
-                   "disclaimer": DISCLAIMER})
+        return _j({"frameworks": FRAMEWORKS, "disclaimer": DISCLAIMER})
     key = q if q in FRAMEWORKS else _ALIASES.get(q)
     if not key:
         # loose contains match
@@ -532,10 +512,8 @@ def compare_companies(companies_json: str) -> str:
             "commoditizes execution. Second, override the numbers with the "
             "ten year test: among the viable companies, which one would you "
             "be truly motivated to build, for years, through the hard middle? "
-            "Why you? Why now? Carlos Llano: the company is the elongated shadow of "
-            "the CEO. Rank by the head, decide with the whole person."
+            "Why you? Why now? Rank by the head, decide with the whole person."
         ),
-        "epigraph": CARLOS_LLANO,
         "disclaimer": DISCLAIMER,
     })
 
@@ -544,8 +522,8 @@ def compare_companies(companies_json: str) -> str:
 def motivation_check(name: str) -> str:
     """The ten year test for the company you would actually build. Returns
     the four founder questions specialized to this company (why you, why now,
-    philosophical alignment, energy), a self scoring rubric, and the Carlos Llano
-    anchor. This is the input AI cannot supply for you."""
+    philosophical alignment, energy) and a self scoring rubric. This is the
+    input AI cannot supply for you."""
     fw = FRAMEWORKS["motivation"]
     return _j({
         "company": name,
@@ -567,7 +545,6 @@ def motivation_check(name: str) -> str:
             "idea you feel lukewarm about should score low, and that is the "
             "tool working. Feed the average of these into founder_motivation."
         ),
-        "epigraph": CARLOS_LLANO,
         "disclaimer": DISCLAIMER,
     })
 
@@ -601,18 +578,10 @@ def future_of_work(name: str) -> str:
 
 
 @mcp.tool()
-def carlos_llano_principle() -> str:
-    """The founding principle behind the whole analyzer. Carlos Llano, founder
-    of IPADE: 'La empresa es la sombra alargada del CEO', with its English
-    translation and what it means for choosing which company to build."""
-    return _j({"principle": CARLOS_LLANO, "disclaimer": DISCLAIMER})
-
-
-@mcp.tool()
 def get_exercise() -> str:
     """The full student exercise, six steps, from analyzing three companies to
     the ten year test. Hand this to a class, or run it yourself."""
-    return _j({"exercise": EXERCISE, "epigraph": CARLOS_LLANO,
+    return _j({"exercise": EXERCISE,
                "repo": "https://github.com/duribebe/mba-mcp", "disclaimer": DISCLAIMER})
 
 
