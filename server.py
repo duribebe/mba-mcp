@@ -189,7 +189,7 @@ FRAMEWORKS = {
                 "What you do, how it works in about three steps, and the one "
                 "aha that makes people lean in."
             ),
-            "4. Market and model": (
+            "4. Market and Business model": (
                 "TAM, SAM, SOM as three honest numbers, and how the company "
                 "actually makes money."
             ),
@@ -637,7 +637,7 @@ TECHSTARS_DECK = {
          "techstars": "Stop telling, start showing.",
          "put_here": "What you do, how it works in about three steps, and the one "
                      "aha that makes people lean in."},
-        {"n": 4, "title": "Market and business model",
+        {"n": 4, "title": "Market and Business model",
          "techstars": "Get real about size, then show the money flows.",
          "put_here": "TAM, SAM, SOM as three honest numbers, and how the company "
                      "actually makes money."},
@@ -803,12 +803,12 @@ def _render_deck(d: dict) -> str:
         if mk.get(k):
             nums += '<div class="num"><div class="nlab">%s</div><div class="nval">%s</div></div>' % (lab, _esc(mk.get(k)))
     s4 = slide(
-        '<h2>Market and business model</h2><div class="nums">%s</div>%s'
+        '<h2>Market and Business model</h2><div class="nums">%s</div>%s'
         '<div class="call"><b>%s</b><ul>%s</ul></div>' % (
             nums,
             ('<p class="note">%s</p>' % _esc(mk.get("note"))) if mk.get("note") else "",
             _esc(bm.get("headline", "How it makes money.")), _lis(bm.get("streams"))),
-        "03 · Market and model · size and money", 4)
+        "03 · Market and Business model · size and money", 4)
 
     s5 = slide(
         '<div class="two"><div><div class="h3">%s</div><ul>%s</ul></div>'
