@@ -1,6 +1,6 @@
 # The MBA Company Analyzer, Student Exercise
 
-> *"La empresa es la sombra alargada del CEO."* The company is the long shadow of the CEO.
+> *"La empresa es la sombra alargada del CEO."* The company is the elongated shadow of the CEO.
 > Carlos Llano Cifuentes, founder of IPADE Business School.
 
 **Objective.** Practice thinking like a founder and an investor, then discover the one input AI cannot supply for you.
@@ -9,7 +9,7 @@
 At least one real and one you invent. A strong set is one giant, one startup, and your own idea. Write their names down.
 
 ### Step 2. Analyze each with the tool
-For each company, ask Claude to run `analyze_company`. Answer the questions it returns for the 5 C's and the 4 P's, the value triangle, value capture, values, and sustainability. Be concrete. Then record a score from 0 to 10 on each of the eight dimensions with `score_company`.
+For each company, ask Claude to run `analyze_company`. Answer the questions it returns for the 5 C's and the 4 P's, the value triangle, value capture, values, and sustainability. Be concrete. Then record a grade from 1 to 4 on each of the eight lenses with `score_company`.
 
 ### Step 3. Compare
 Run `compare_companies` with all three scorecards. Read the matrix. Which company wins on customer and market, on value capture, on the moat? Which one is only cheap, or only clever?
@@ -28,7 +28,7 @@ Run `motivation_check` on the company you would build. Answer honestly:
 The numbers rank viability. This ranks you.
 
 ### Step 6. Decide and defend
-In one paragraph, name the company you would build and defend the choice with the frameworks. Remember Carlos Llano: the company is the long shadow of the CEO. Choose a shadow you are proud to cast.
+In one paragraph, name the company you would build and defend the choice with the frameworks. Remember Carlos Llano: the company is the elongated shadow of the CEO. Choose a shadow you are proud to cast.
 
 ### Step 7. Pitch it
 Now turn your analysis into a real pitch deck. Ask Claude to run `deck_outline` for the Techstars 6-slide format, fill in your company's story, then run `pitch_deck`. You get a self-contained `.html` deck: cover, problem, solution, market and model, traction and moat, team and the ask. Open it in a browser, present it, and print it to PDF. Every slide has to answer one question, "so what?"

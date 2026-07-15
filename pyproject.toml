@@ -1,6 +1,6 @@
 [project]
 name = "mba-mcp"
-version = "0.3.0"
+version = "0.4.0"
 description = "MBA Company Analyzer, an MCP server that gives Claude the Harvard and IPADE case canon to analyze and compare companies."
 readme = "README.md"
 requires-python = ">=3.10"

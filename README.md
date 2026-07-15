@@ -1,7 +1,7 @@
 # MBA Company Analyzer (`mba-mcp`)
 
 > *"La empresa es la sombra alargada del CEO."*
-> The company is the long shadow of the CEO.
+> The company is the elongated shadow of the CEO.
 > **Carlos Llano Cifuentes, founder of IPADE Business School**
 
 A pocket business school as an [MCP](https://modelcontextprotocol.io) server for Claude. It gives Claude the Harvard and IPADE case canon as structured frameworks, scoring rubrics, and comparison scaffolds, so a student can analyze and compare three or more companies (real or invented) and then face the deepest question of the age of AI:
@@ -27,18 +27,20 @@ You point Claude at three or more companies. For each one, the analyzer supplies
 7. **The Future of Work**: what stays irreplaceably human when AI can do the execution.
 8. **The IPADE case method**: situation (5 C's), alternatives (4 P's), financials (the 3 R's).
 
-**How it scores** (0 to 10 on eight weighted dimensions, total out of 100)
+**How it scores.** Grade each of the eight lenses from **1 to 4** (1 weak, 2 fair, 3 strong, 4 exceptional). The overall grade is the average, on the same 1 to 4 scale. Simple on purpose.
 
-| Dimension | Weight |
+| Lens | Grade 1 to 4 |
 | --- | --- |
-| Customer and Market (5 C's) | 15 |
-| Value Creation (value triangle) | 15 |
-| Value Capture (pricing) | 15 |
-| Competition and Moat | 12 |
-| Founder Fit and Motivation | 13 |
-| Values and Ethics | 10 |
-| Sustainability and Durability | 10 |
-| AI-Resilience (future of work) | 10 |
+| Customer and Market (5 C's) | 1 to 4 |
+| Value Creation (value triangle) | 1 to 4 |
+| Value Capture (pricing) | 1 to 4 |
+| Competition and Moat | 1 to 4 |
+| Founder Fit and Motivation | 1 to 4 |
+| Values and Ethics | 1 to 4 |
+| Sustainability and Durability | 1 to 4 |
+| AI-Resilience (future of work) | 1 to 4 |
+
+Grade 3 or higher is compelling, 2.4 or higher is promising, 1.8 or higher is viable but thin, below that is not yet.
 
 ## The tools
 
@@ -48,7 +50,7 @@ You point Claude at three or more companies. For each one, the analyzer supplies
 | `list_frameworks` | Index of the frameworks. |
 | `get_framework(name)` | Open one framework in full. |
 | `analyze_company(name, description)` | The lens by lens scaffold, plus the bull case, bear case, key metric, and confidence. |
-| `score_company(name, scores_json)` | Weighted scorecard and verdict. |
+| `score_company(name, scores_json)` | The 1 to 4 scorecard and verdict. |
 | `compare_companies(companies_json)` | One comparison matrix and ranking. |
 | `motivation_check(name)` | The get up from bed test. |
 | `future_of_work(name)` | What stays human when AI does the rest. |
@@ -101,7 +103,7 @@ The classroom exercise is in [`EXERCISE.md`](EXERCISE.md) and is also returned b
 
 ## Why this exists
 
-Most of the tasks inside a company are becoming things AI can do. The one input it cannot supply for you is the motivation to start, and to keep going through the hard middle. A company will always be the long shadow of the person who leads it. So before you ask whether a business is viable, ask whether it is a shadow you would be proud to cast.
+Most of the tasks inside a company are becoming things AI can do. The one input it cannot supply for you is the motivation to start, and to keep going through the hard middle. A company will always be the elongated shadow of the person who leads it. So before you ask whether a business is viable, ask whether it is a shadow you would be proud to cast.
 
 ## License
 

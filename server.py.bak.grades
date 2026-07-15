@@ -10,7 +10,7 @@ would you still be motivated enough to get up from bed and build it?
 Grounded in the IPADE 5 C's and 4 P's, the value triangle, value based pricing,
 and the
 principle of IPADE founder Carlos Llano Cifuentes: "La empresa es la sombra
-alargada del CEO." The company is the elongated shadow of the CEO.
+alargada del CEO." The company is the long shadow of the CEO.
 
 Run: python3 server.py   (stdio transport)
 """
@@ -39,7 +39,7 @@ def _j(obj) -> str:
 CARLOS_LLANO = {
     "quote_es": "La empresa es la sombra alargada del CEO.",
     "author": "Carlos Llano Cifuentes, founder of IPADE Business School",
-    "translation_en": "The company is the elongated shadow of the CEO.",
+    "translation_en": "The company is the long shadow of the CEO.",
     "meaning": (
         "A company inevitably takes the shape, the values, the strengths, and "
         "the blind spots of the person who leads it. Its culture, its ethics, "
@@ -176,7 +176,7 @@ FRAMEWORKS = {
         "definition": (
             "A company's values are not a poster on the wall. They are the "
             "choices it makes when money and mission conflict. This is where "
-            "Carlos Llano's principle bites: the company is the elongated shadow of "
+            "Carlos Llano's principle bites: the company is the long shadow of "
             "the CEO, so its true values are the founder's true values, made "
             "visible at scale."
         ),
@@ -300,22 +300,22 @@ _ALIASES = {
 }
 
 DIMENSIONS = [
-    {"key": "customer_market", "label": "Customer and Market (5 C's)"},
-    {"key": "value_creation", "label": "Value Creation (value triangle)"},
-    {"key": "value_capture", "label": "Value Capture (pricing)"},
-    {"key": "competition_moat", "label": "Competition and Moat"},
-    {"key": "values_ethics", "label": "Values and Ethics"},
-    {"key": "sustainability", "label": "Sustainability and Durability"},
-    {"key": "founder_motivation", "label": "Founder Fit and Motivation"},
-    {"key": "ai_resilience", "label": "AI-Resilience (future of work)"},
+    {"key": "customer_market", "label": "Customer and Market (5 C's)", "weight": 15},
+    {"key": "value_creation", "label": "Value Creation (value triangle)", "weight": 15},
+    {"key": "value_capture", "label": "Value Capture (pricing)", "weight": 15},
+    {"key": "competition_moat", "label": "Competition and Moat", "weight": 12},
+    {"key": "values_ethics", "label": "Values and Ethics", "weight": 10},
+    {"key": "sustainability", "label": "Sustainability and Durability", "weight": 10},
+    {"key": "founder_motivation", "label": "Founder Fit and Motivation", "weight": 13},
+    {"key": "ai_resilience", "label": "AI-Resilience (future of work)", "weight": 10},
 ]
-def _verdict(grade: float) -> str:
-    if grade >= 3.0:
+def _verdict(total: float) -> str:
+    if total >= 75:
         return "Compelling. This is worth building, and worth building by you."
-    if grade >= 2.4:
-        return ("Promising. The idea is real. Sharpen the weakest lenses and the "
+    if total >= 60:
+        return ("Promising. The idea is real. Sharpen the weakest C's and the "
                 "moat before you commit.")
-    if grade >= 1.8:
+    if total >= 45:
         return ("Viable but thin. The business could exist, but the edge or "
                 "the motivation is weak. Rework it, or pick a different shadow "
                 "to cast.")
@@ -324,11 +324,10 @@ def _verdict(grade: float) -> str:
 
 
 def _score_one(scores: dict):
-    """Return (grade_1_to_4, per_dimension_list, missing_keys). Each lens is
-    scored 1 to 4; the grade is the plain average of the lenses provided."""
+    """Return (total_0_100, per_dimension_list, missing_keys)."""
     per = []
+    used_weight = 0.0
     got = 0.0
-    n = 0
     missing = []
     for d in DIMENSIONS:
         k = d["key"]
@@ -336,16 +335,21 @@ def _score_one(scores: dict):
             try:
                 v = float(scores[k])
             except (TypeError, ValueError):
-                v = 1.0
-            v = max(1.0, min(4.0, v))
-            got += v
-            n += 1
-            per.append({"dimension": d["label"], "key": k, "score": round(v, 1)})
+                v = 0.0
+            v = max(0.0, min(10.0, v))
+            contrib = (v / 10.0) * d["weight"]
+            got += contrib
+            used_weight += d["weight"]
+            per.append({"dimension": d["label"], "key": k, "score": round(v, 1),
+                        "weight": d["weight"], "contribution": round(contrib, 1)})
         else:
             missing.append(k)
-            per.append({"dimension": d["label"], "key": k, "score": None})
-    grade = round(got / n, 1) if n else 0.0
-    return grade, per, missing
+            per.append({"dimension": d["label"], "key": k, "score": None,
+                        "weight": d["weight"], "contribution": 0.0})
+    # Normalize to 0..100 over the weights actually provided, so partial scoring
+    # is not unfairly penalized. If nothing was scored, total is 0.
+    total = round((got / used_weight) * 100, 1) if used_weight else 0.0
+    return total, per, missing
 
 
 EXERCISE = """MBA COMPANY ANALYZER, THE STUDENT EXERCISE
@@ -358,7 +362,7 @@ set is one giant, one startup, and your own idea.
 
 Step 2. Analyze each with the tool. For each company run analyze_company, answer
 the questions it returns for the 5 C's and the 4 P's, the value triangle, value capture,
-values, and sustainability, then record a score from 1 to 4 on each of the
+values, and sustainability, then record a score from 0 to 10 on each of the
 eight dimensions with score_company.
 
 Step 3. Compare. Run compare_companies with all three scorecards. Read the
@@ -376,7 +380,7 @@ This ranks you.
 
 Step 6. Decide and defend. In one paragraph, name the company you would build
 and defend the choice with the frameworks. Remember Carlos Llano: the company is
-the elongated shadow of the CEO. Choose a shadow you are proud to cast.
+the long shadow of the CEO. Choose a shadow you are proud to cast.
 """
 
 
@@ -394,19 +398,19 @@ def status() -> str:
         "name": "MBA Company Analyzer",
         "grounding": ("Harvard and IPADE case method. The 5 C's and 4 P's, the "
                       "value triangle, value based pricing, and Carlos Llano's "
-                      "principle of the elongated shadow of the CEO."),
+                      "principle of the long shadow of the CEO."),
         "epigraph": CARLOS_LLANO,
         "how_to_use": [
             "1. get_framework to learn any lens (or list_frameworks for the index).",
             "2. analyze_company(name, description) for each company to get the scaffold.",
-            "3. score_company(name, scores_json) to record 1 to 4 on the eight dimensions.",
+            "3. score_company(name, scores_json) to record 0 to 10 on the eight dimensions.",
             "4. compare_companies(companies_json) to rank them on one matrix.",
             "5. future_of_work(name) to see what stays human when AI does the rest.",
             "6. motivation_check(name) for the get up from bed test on the one you would build.",
             "7. deck_outline() then pitch_deck(name, deck_json) to deliver the Techstars pitch deck.",
             "8. get_exercise for the full classroom exercise.",
         ],
-        "dimensions": [{"key": d["key"], "label": d["label"]}
+        "dimensions": [{"key": d["key"], "label": d["label"], "weight": d["weight"]}
                        for d in DIMENSIONS],
         "disclaimer": DISCLAIMER,
     })
@@ -453,7 +457,7 @@ def get_framework(name: str = "") -> str:
 def analyze_company(name: str, description: str = "") -> str:
     """Build a rigorous analysis scaffold for one company (real or invented).
     Returns the lens by lens questions to answer for this specific company
-    across every framework, plus a blank 1 to 4 scoring template. This tool
+    across every framework, plus a blank 0 to 10 scoring template. This tool
     supplies the structure and the questions. You supply the reasoning about the
     real company, then record the result with score_company."""
     lenses = []
@@ -481,12 +485,12 @@ def analyze_company(name: str, description: str = "") -> str:
             "bull_case": "The strongest one paragraph reason this becomes a big company.",
             "bear_case": "The strongest one paragraph reason it fails.",
             "key_metric": "The one number that, if it moves, decides everything.",
-            "confidence": "Rate your confidence 1 to 4 and say what evidence would raise it.",
+            "confidence": "Rate your confidence 0 to 10 and say what evidence would raise it.",
         },
         "scoring_template": {d["key"]: None for d in DIMENSIONS},
         "scoring_guide": {d["key"]: d["label"] for d in DIMENSIONS},
         "deliver": [
-            "1. score_company(name, scores_json) for the 1 to 4 scorecard.",
+            "1. score_company(name, scores_json) for the weighted scorecard.",
             "2. compare_companies(companies_json) to rank the set.",
             "3. deck_outline() then pitch_deck(name, deck_json) to deliver the Techstars HTML pitch deck.",
         ],
@@ -496,13 +500,12 @@ def analyze_company(name: str, description: str = "") -> str:
 
 @mcp.tool()
 def score_company(name: str, scores_json: str) -> str:
-    """Record a company's scorecard and get a grade from 1 to 4 and a verdict.
-    Pass scores_json as a JSON object mapping dimension keys to numbers from 1
-    to 4 (1 weak, 2 fair, 3 strong, 4 exceptional), for example:
-    {"customer_market": 3, "value_creation": 3, "value_capture": 2,
-    "competition_moat": 3, "values_ethics": 4, "sustainability": 3,
-    "founder_motivation": 4, "ai_resilience": 3}. Missing dimensions are
-    allowed and are averaged out."""
+    """Record a company's scorecard and get a weighted total and a verdict.
+    Pass scores_json as a JSON object mapping dimension keys to numbers from 0
+    to 10, for example: {"customer_market": 8, "value_creation": 7,
+    "value_capture": 6, "competition_moat": 5, "values_ethics": 9,
+    "sustainability": 7, "founder_motivation": 9, "ai_resilience": 8}. Missing
+    dimensions are allowed and are normalized out of the total."""
     try:
         scores = json.loads(scores_json)
         if not isinstance(scores, dict):
@@ -513,11 +516,11 @@ def score_company(name: str, scores_json: str) -> str:
     total, per, missing = _score_one(scores)
     return _j({
         "company": name,
-        "grade_1_to_4": total,
+        "total_0_to_100": total,
         "verdict": _verdict(total),
         "per_dimension": per,
         "missing_dimensions": missing,
-        "note": ("The grade ranks viability. It does not decide motivation. Run "
+        "note": ("The total ranks viability. It does not decide motivation. Run "
                  "motivation_check before you commit."),
         "disclaimer": DISCLAIMER,
     })
@@ -527,7 +530,7 @@ def score_company(name: str, scores_json: str) -> str:
 def compare_companies(companies_json: str) -> str:
     """Compare two to four scored companies on one matrix. Pass companies_json
     as a JSON array of objects, each with a name and a scores object, for
-    example: [{"name":"A","scores":{"customer_market":3,...}}, {"name":"B",
+    example: [{"name":"A","scores":{"customer_market":8,...}}, {"name":"B",
     "scores":{...}}]. Returns a dimension by company matrix, the leader on each
     dimension, the overall ranking, and a decision scaffold."""
     try:
@@ -536,7 +539,7 @@ def compare_companies(companies_json: str) -> str:
             raise ValueError("companies_json must be a non empty JSON array")
     except (json.JSONDecodeError, ValueError) as e:
         return _j({"error": f"Could not parse companies_json: {e}",
-                   "expected": '[{"name":"A","scores":{"customer_market":3,...}}, ...]'})
+                   "expected": '[{"name":"A","scores":{"customer_market":8,...}}, ...]'})
     computed = []
     for c in companies[:4]:
         nm = c.get("name", "Company")
@@ -546,7 +549,7 @@ def compare_companies(companies_json: str) -> str:
     names = [c["name"] for c in computed]
     matrix = []
     for d in DIMENSIONS:
-        row = {"dimension": d["label"]}
+        row = {"dimension": d["label"], "weight": d["weight"]}
         best_name, best_val = None, -1.0
         for c in computed:
             v = c["scores"].get(d["key"])
@@ -559,7 +562,7 @@ def compare_companies(companies_json: str) -> str:
     return _j({
         "companies": names,
         "matrix": matrix,
-        "ranking": [{"rank": i + 1, "name": c["name"], "grade_1_to_4": c["total"],
+        "ranking": [{"rank": i + 1, "name": c["name"], "total_0_to_100": c["total"],
                      "verdict": _verdict(c["total"])}
                     for i, c in enumerate(ranking)],
         "decision_scaffold": (
@@ -569,7 +572,7 @@ def compare_companies(companies_json: str) -> str:
             "commoditizes execution. Second, override the numbers with the get "
             "up from bed test: among the viable companies, which one would you "
             "be truly motivated to build, for years, through the hard middle? "
-            "Why you? Why now? Carlos Llano: the company is the elongated shadow of "
+            "Why you? Why now? Carlos Llano: the company is the long shadow of "
             "the CEO. Rank by the head, decide with the whole person."
         ),
         "epigraph": CARLOS_LLANO,
