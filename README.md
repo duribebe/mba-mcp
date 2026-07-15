@@ -18,20 +18,20 @@ You point Claude at three or more companies. For each one, the analyzer supplies
 
 **Frameworks it teaches**
 
-1. **The 5 C's and the 4 P's** (IPADE): the 5 C's (Compania, Consumidor, Competencia, Contexto, Canales) diagnose the situation; the 4 P's (Producto, Precio, Plaza, Promocion) are the actions you take in response.
-2. **The Value Triangle**: the three kinds of value a customer receives, utility, monetary, and psychological.
-3. **Value Capture** (pricing): the value stick (willingness to pay minus cost), and the three ways to set price.
-4. **Values**: what the company actually stands for, judged by its choices, not its slogans.
-5. **Sustainability**: business durability, and whether it renews or depletes the world it uses.
-6. **Founder Fit and Motivation**: why you, why now, philosophical alignment, and the ten year test.
-7. **The Future of Work**: what stays irreplaceably human when AI can do the execution.
-8. **The IPADE case method**: situation (5 C's), alternatives (4 P's), financials (the 3 R's).
+1. **The Value Triangle**: the three kinds of value a customer receives, utility, monetary, and psychological.
+2. **Value Capture** (pricing): the value stick (willingness to pay minus cost), and the three ways to set price.
+3. **Values**: what the company actually stands for, judged by its choices, not its slogans.
+4. **Sustainability**: business durability, and whether it renews or depletes the world it uses.
+5. **Founder Fit and Motivation**: why you, why now, philosophical alignment, and the ten year test.
+6. **The Future of Work**: what stays irreplaceably human when AI can do the execution.
+7. **The Pitch** (Techstars): the minimal elements a pitch must have, in order, closed by one rule, every slide answers "so what?".
+8. **The case method**: situation (customer and market), alternatives (value triangle and value capture), financials (the 3 R's).
 
 **How it scores.** Grade each of the eight lenses from **1 to 4** (1 weak, 2 fair, 3 strong, 4 exceptional). The overall grade is the average, on the same 1 to 4 scale. Simple on purpose.
 
 | Lens | Grade 1 to 4 |
 | --- | --- |
-| Customer and Market (5 C's) | 1 to 4 |
+| Customer and Market | 1 to 4 |
 | Value Creation (value triangle) | 1 to 4 |
 | Value Capture (pricing) | 1 to 4 |
 | Competition and Moat | 1 to 4 |

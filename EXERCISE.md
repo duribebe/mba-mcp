@@ -9,7 +9,7 @@
 At least one real and one you invent. A strong set is one giant, one startup, and your own idea. Write their names down.
 
 ### Step 2. Analyze each with the tool
-For each company, ask Claude to run `analyze_company`. Answer the questions it returns for the 5 C's and the 4 P's, the value triangle, value capture, values, and sustainability. Be concrete. Then record a grade from 1 to 4 on each of the eight lenses with `score_company`.
+For each company, ask Claude to run `analyze_company`. Answer the questions it returns for the value triangle, value capture, the customer and market, values, and sustainability. Be concrete. Then record a grade from 1 to 4 on each of the eight lenses with `score_company`.
 
 ### Step 3. Compare
 Run `compare_companies` with all three scorecards. Read the matrix. Which company wins on customer and market, on value capture, on the moat? Which one is only cheap, or only clever?

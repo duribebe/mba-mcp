@@ -7,9 +7,8 @@ can analyze and compare three or more companies (real or invented) and then face
 the deepest question of the age of AI: when a machine can do most of the work,
 would you still be inspired enough to build it for the next ten years?
 
-Grounded in the IPADE 5 C's and 4 P's, the value triangle, value based pricing,
-and the
-principle of IPADE founder Carlos Llano Cifuentes: "La empresa es la sombra
+Grounded in the value triangle, value based pricing, the Techstars pitch, and
+the principle of IPADE founder Carlos Llano Cifuentes: "La empresa es la sombra
 alargada del CEO." The company is the elongated shadow of the CEO.
 
 Run: python3 server.py   (stdio transport)
@@ -51,79 +50,6 @@ CARLOS_LLANO = {
 }
 
 FRAMEWORKS = {
-    "fivecs": {
-        "title": "The 5 C's (IPADE strategic diagnostic)",
-        "definition": (
-            "Read any company as five forces you must understand before you "
-            "act. The 5 C's diagnose the situation; the 4 P's (Producto, "
-            "Precio, Plaza, Promocion) are the actions you take in response. "
-            "Some IPADE readings also fold in Comunidad (community and social "
-            "responsibility) as a sixth lens."
-        ),
-        "parts": {
-            "Compania (Company)": (
-                "The firm itself: its mission, resources, capabilities, and "
-                "its Strengths, Weaknesses, Opportunities, and Threats (SWOT). "
-                "Ask: what does this company have that rivals cannot easily "
-                "copy?"
-            ),
-            "Consumidor (Customer)": (
-                "Who is really the customer, read through the Decision Making "
-                "Unit (DMU): the user, the beneficiary, the payer, the "
-                "decider, the influencer, and the evaluator. These are often "
-                "different people. Ask: whose problem is this, who pays, who "
-                "decides, and how strong is their willingness to pay?"
-            ),
-            "Competencia (Competition)": (
-                "Rivals, substitutes, and new entrants. Positioning equals the "
-                "segment you choose plus your differentiation. Ask: why would "
-                "a customer pick this over the alternatives, and can that edge "
-                "be defended (the moat)?"
-            ),
-            "Contexto (Context)": (
-                "The macro environment: technology, regulation, economy, "
-                "society, and culture. This is where 'why now' lives. Ask: "
-                "what just changed in the world that makes this possible or "
-                "urgent today?"
-            ),
-            "Canales (Channels)": (
-                "The path the product travels to reach the buyer, and who "
-                "controls it: direct, retail, platform, partner, or "
-                "marketplace. Ask: how does this reach the customer, who owns "
-                "that road, and can a gatekeeper tax or block it?"
-            ),
-        },
-        "scores": "customer_market, competition_moat, channels (go to market)",
-    },
-    "fourps": {
-        "title": "The 4 P's (IPADE marketing mix, the action)",
-        "definition": (
-            "Where the 5 C's diagnose, the 4 P's decide. They are the four "
-            "levers a founder pulls to take a product to market. In Spanish "
-            "they alliterate, which is how business schools drill them."
-        ),
-        "parts": {
-            "Producto (Product)": (
-                "What you actually sell, and the one job it does better than "
-                "any alternative the buyer could pick. Features serve the job."
-            ),
-            "Precio (Price)": (
-                "What you charge and how, tied to the value delivered rather "
-                "than to cost. Value based pricing lives here, and the model "
-                "(one time, subscription, usage) is part of the price."
-            ),
-            "Plaza (Place)": (
-                "Where and how the buyer gets it, the channel. The same "
-                "product wins or dies on whether it meets people where they "
-                "already are. This is Canales made concrete."
-            ),
-            "Promocion (Promotion)": (
-                "How they hear about it and why they believe you: the story, "
-                "the proof, and the trust that make a stranger willing to try."
-            ),
-        },
-        "scores": "informs value_capture and go to market",
-    },
     "value_triangle": {
         "title": "The Value Triangle: three kinds of value a customer receives",
         "definition": (
@@ -258,13 +184,53 @@ FRAMEWORKS = {
         },
         "scores": "ai_resilience",
     },
+    "pitch": {
+        "title": "The pitch (Techstars minimal elements)",
+        "definition": (
+            "Once you understand the company, you have to pitch it. The "
+            "Techstars format is the minimal set of things a pitch must say, "
+            "in order, with one rule: every slide answers 'so what?'. If a "
+            "slide does not move the story forward, cut it. Use deck_outline "
+            "then pitch_deck to generate the deck."
+        ),
+        "parts": {
+            "1. Cover": (
+                "Company name and a one line pitch a stranger could repeat "
+                "correctly."
+            ),
+            "2. Problem": (
+                "The pain, who has it, how big it is, and why now. Concrete, "
+                "not abstract."
+            ),
+            "3. Solution": (
+                "What you do, how it works in about three steps, and the one "
+                "aha that makes people lean in."
+            ),
+            "4. Market and model": (
+                "TAM, SAM, SOM as three honest numbers, and how the company "
+                "actually makes money."
+            ),
+            "5. Traction and moat": (
+                "Real proof (users, revenue, pilots, milestones) and the moat "
+                "a rival cannot copy."
+            ),
+            "6. Team and the ask": (
+                "Who the team is and why them, the exact ask, and the vision "
+                "if it works."
+            ),
+        },
+        "scores": "render it with deck_outline then pitch_deck",
+    },
     "case_method": {
         "title": "The IPADE case method: how to run the whole analysis",
         "definition": "Do not rush to a verdict. Diagnose, then decide, then defend.",
         "parts": {
-            "1. Situation": "Read the 5 C's to find the real problem.",
+            "1. Situation": (
+                "Read the customer, the market, and the competition to find the "
+                "real problem."
+            ),
             "2. Alternatives": (
-                "Use the 4 P's (Producto, Precio, Plaza, Promocion) to design "
+                "Use the value triangle and value capture to design and price "
                 "courses of action."
             ),
             "3. Financials": (
@@ -279,10 +245,6 @@ FRAMEWORKS = {
 
 # Aliases so students can ask naturally.
 _ALIASES = {
-    "5cs": "fivecs", "5 c": "fivecs", "5 c's": "fivecs", "five cs": "fivecs",
-    "4cs": "fivecs", "4 c's": "fivecs", "cs": "fivecs", "c": "fivecs",
-    "4ps": "fourps", "4 p": "fourps", "4 p's": "fourps", "four ps": "fourps",
-    "ps": "fourps", "p": "fourps", "marketing mix": "fourps",
     "value triangle": "value_triangle", "triangle": "value_triangle",
     "value": "value_triangle", "value creation": "value_triangle",
     "value capture": "value_capture", "pricing": "value_capture",
@@ -297,10 +259,12 @@ _ALIASES = {
     "automation": "future_of_work", "future": "future_of_work",
     "case method": "case_method", "method": "case_method",
     "case": "case_method",
+    "pitch": "pitch", "pitch deck": "pitch", "deck": "pitch",
+    "techstars": "pitch", "slides": "pitch", "presentation": "pitch",
 }
 
 DIMENSIONS = [
-    {"key": "customer_market", "label": "Customer and Market (5 C's)"},
+    {"key": "customer_market", "label": "Customer and Market"},
     {"key": "value_creation", "label": "Value Creation (value triangle)"},
     {"key": "value_capture", "label": "Value Capture (pricing)"},
     {"key": "competition_moat", "label": "Competition and Moat"},
@@ -357,7 +321,7 @@ Step 1. Pick three companies. At least one real and one you invent. A strong
 set is one giant, one startup, and your own idea.
 
 Step 2. Analyze each with the tool. For each company run analyze_company, answer
-the questions it returns for the 5 C's and the 4 P's, the value triangle, value capture,
+the questions it returns for the value triangle, value capture, the customer and market,
 values, and sustainability, then record a score from 1 to 4 on each of the
 eight dimensions with score_company.
 
@@ -392,9 +356,9 @@ def status() -> str:
     you. Start here."""
     return _j({
         "name": "MBA Company Analyzer",
-        "grounding": ("Harvard and IPADE case method. The 5 C's and 4 P's, the "
-                      "value triangle, value based pricing, and Carlos Llano's "
-                      "principle of the elongated shadow of the CEO."),
+        "grounding": ("Harvard and IPADE case method. The value triangle, "
+                      "value based pricing, the Techstars pitch, and Carlos "
+                      "Llano's principle of the elongated shadow of the CEO."),
         "epigraph": CARLOS_LLANO,
         "how_to_use": [
             "1. get_framework to learn any lens (or list_frameworks for the index).",
@@ -418,8 +382,8 @@ def list_frameworks() -> str:
     Use get_framework(name) to open any of them."""
     return _j({
         "frameworks": [{"key": k, "title": v["title"]} for k, v in FRAMEWORKS.items()],
-        "tip": "get_framework('fivecs' | 'fourps' | 'value_triangle' | 'value_capture' | "
-               "'values' | 'sustainability' | 'motivation' | 'future_of_work' | "
+        "tip": "get_framework('value_triangle' | 'value_capture' | 'values' | "
+               "'sustainability' | 'motivation' | 'future_of_work' | 'pitch' | "
                "'case_method'), or empty for all.",
     })
 
@@ -428,10 +392,9 @@ def list_frameworks() -> str:
 def get_framework(name: str = "") -> str:
     """Open one analytical framework in full: its definition, its parts, the
     questions to ask, and which scoring dimension it feeds. Pass a key such as
-    'fivecs', 'fourps', 'value_triangle', 'value_capture', 'values',
-    'sustainability',
-    'motivation', 'future_of_work', or 'case_method'. Aliases like '5 c's',
-    'pricing', 'why you', or 'ai' also work. Pass an empty string for all."""
+    'value_triangle', 'value_capture', 'values', 'sustainability',
+    'motivation', 'future_of_work', 'pitch', or 'case_method'. Aliases like
+    'pricing', 'why you', 'ai', or 'deck' also work. Pass an empty string for all."""
     q = (name or "").strip().lower()
     if not q:
         return _j({"frameworks": FRAMEWORKS, "epigraph": CARLOS_LLANO,
